@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EventService } from './event.service';
 declare var require: any;
-
+declare var eventsJsonList: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,8 +10,14 @@ declare var require: any;
 
 export class AppComponent implements OnInit {
   title = 'lista rock';
+
+  public events = [];
+  constructor(private _eventService: EventService) { }
+
   ngOnInit() {
-    var json = require('/home/phil/Documentos/dev/python/listaBot/events.json');
-    console.log(json);
+    this._eventService.getEvents()
+      .subscribe(data => this.events = data);
+      
+    console.log(this.events);
   }
 }
