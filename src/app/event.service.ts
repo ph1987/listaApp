@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class EventService {
 
-  private _url: string = "/assets/data/events.json";
+  private _url: string = "https://lista6.azurewebsites.net/assets/data/events.json";
 
   constructor(private http: HttpClient) { }
 

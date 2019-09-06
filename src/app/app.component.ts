@@ -10,14 +10,16 @@ declare var eventsJsonList: any;
 
 export class AppComponent implements OnInit {
   title = 'lista rock';
-
   public events = [];
+  //today = (new Date()).toISOString().split('.')[0];
+  today = (new Date()).toISOString().split('.')[0].replace('T',' ');
   constructor(private _eventService: EventService) { }
 
   ngOnInit() {
-    this._eventService.getEvents()
-      .subscribe(data => this.events = data);
-      
-    console.log(this.events);
+    console.log(this.today);
+    this._eventService.getEvents().subscribe(data => this.events = data);
+    for (let entry of this.events) {
+      console.log(entry);
+    }
   }
 }
