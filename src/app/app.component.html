@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-4 mt-3" *ngFor="let e of events">
+    <div class="col-sm-12 col-md-4 mt-3" *ngFor="let e of events" [hidden]="e.dateformatted < today">
       <div class="card">
         <div class="card-header text-white bg-dark 
               d-flex align-items-center justify-content-center h-100 text-truncate">
