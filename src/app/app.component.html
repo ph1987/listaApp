@@ -1,18 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-md-4 mt-3" *ngFor="let e of events" [hidden]="e.dateformatted < today">
+    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6 col-xl-4 mt-3" *ngFor="let e of events" [hidden]="e.dateformatted < today">
       <div class="card">
         <div class="card-header text-white bg-dark 
               d-flex align-items-center justify-content-center h-100 text-truncate">
           <p style="font-size:11px;">{{e.title}}</p>
         </div>
         <div class="card-body">
-          <img src="{{e.img}}" alt="Imagem de capa do card">
+          <a target="_blank" href="{{e.url}}">
+            <img src="{{e.img}}" alt="Imagem de capa do card" title="{{e.title}}">
+          </a>
           <p class="mt-3"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{e.datefull}}</p>
-          <p title="{{e.address}}"><i class="fa fa-map-marker"
-              aria-hidden="true"></i>&nbsp;&nbsp;<strong>{{e.locationName}}</strong>&nbsp;<i class="fa fa-info-circle" aria-hidden="true"></i></p>
-          <br/><a target="_blank" href="{{e.url}}" class="btn btn-dark pgevento"><i class="fa fa-facebook-official" aria-hidden="true"></i>
-            Página do evento</a>
+          <p title="{{e.address}}">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            &nbsp;&nbsp;<strong>{{e.locationName}}</strong>&nbsp;
+            <!-- <i class="fa fa-info-circle" aria-hidden="true"></i> -->
+          </p>
+          <br/>
+          <a target="_blank" href="{{e.url}}" class="btn btn-dark pgevento">
+            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            Página do evento
+          </a>
         </div>
       </div>
     </div>
